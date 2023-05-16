@@ -1,15 +1,25 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppComponent } from './app.component';
+import {
+  GridModule
+} from "@progress/kendo-angular-grid";
+import { InputsModule } from "@progress/kendo-angular-inputs";
+
+import { AppComponent } from "./app.component";
+import { NgModule } from '@angular/core';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    GridModule,
+    InputsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

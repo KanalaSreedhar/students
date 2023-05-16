@@ -1,24 +1,30 @@
-﻿<h1 id="tableLabel">Weather forecast</h1>
-
-<p>This component demonstrates fetching data from the server.</p>
-
-<p *ngIf="!forecasts"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
-
-<table *ngIf="forecasts">
-    <thead>
-        <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let forecast of forecasts">
-            <td>{{ forecast.date }}</td>
-            <td>{{ forecast.temperatureC }}</td>
-            <td>{{ forecast.temperatureF }}</td>
-            <td>{{ forecast.summary }}</td>
-        </tr>
-    </tbody>
-</table>
+<kendo-grid [kendoGridBinding]="gridView"
+            kendoGridSelectBy="name"
+            [(selectedKeys)]="mySelection"
+            [pageSize]="20"
+            [pageable]="false"
+            [sortable]="true"
+            [groupable]="false"
+            [reorderable]="true"
+            [resizable]="true"
+            [height]="500"
+            [columnMenu]="{ filter: true }">
+    <kendo-grid-column field="name" 
+                       title="Name"
+                       [width]="100"
+                       [class]="{ 'text-center': true }">
+    </kendo-grid-column>
+    <kendo-grid-column field="age"
+                       title="Age"
+                       [width]="100"
+                       [class]="{ 'text-center': true }"
+                       [resizable]="false">
+    </kendo-grid-column>
+    <kendo-grid-column field="hobies"
+                       title="Hobies"
+                       [width]="220"
+                       [class]="{ 'text-center': true }"
+                       [resizable]="false"
+                       filter="boolean">
+    </kendo-grid-column>
+</kendo-grid>
